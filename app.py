@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # This allows your web page to talk to the backend
+CORS(app)  # This enables CORS for all routes
 
 def get_bot_response(user_input):
     user_input = user_input.lower()
@@ -28,5 +28,5 @@ def chat():
     bot_response = get_bot_response(user_message)
     return jsonify({'response': bot_response})
 
-if __name__ == '__main__':
-    app.run()
+# For Render, you do NOT need to call app.run() at the end.
+# Render will automatically start your app.
