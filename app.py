@@ -17,6 +17,10 @@ def get_bot_response(user_input):
     else:
         return "Sorry, I didn't understand that. Can you rephrase?"
 
+@app.route('/')
+def home():
+    return "Chatbot backend is running!"
+
 @app.route('/chat', methods=['POST'])
 def chat():
     data = request.get_json()
@@ -25,4 +29,4 @@ def chat():
     return jsonify({'response': bot_response})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
